@@ -236,10 +236,10 @@
         Checklist – první spuštění
       </h3>
       <ul id="checklist" class="checklist">
-        <li data-key="load"><span class="dot" id="dot-load"></span><div><div><b>Načíst přiložený půdorys</b></div><small>Klikni na „Načíst přiložený“</small></div></li>
-        <li data-key="calib"><span class="dot" id="dot-calib"></span><div><div><b>Kalibrace délky</b></div><small>Označ 2 body a potvrď <b>4.55 m</b></small></div></li>
-        <li data-key="labels"><span class="dot" id="dot-labels"></span><div><div><b>Zapnout všechny popisky</b></div><small>Klikni na „Popisky: vybraný“</small></div></li>
-        <li data-key="add"><span class="dot" id="dot-add"></span><div><div><b>Přidat první kus nábytku</b></div><small>Zvol tmavší barvu pro lepší čitelnost</small></div></li>
+        <li data-key="load"><span class="dot" id="dot-load"></span><div><div><b>Načíst přiložený půdorys</b></div><small>Klikněte na „Načíst přiložený“</small></div></li>
+        <li data-key="calib"><span class="dot" id="dot-calib"></span><div><div><b>Kalibrace délky</b></div><small>Označ 2 body a potvrďte <b>4.55 m</b></small></div></li>
+        <li data-key="labels"><span class="dot" id="dot-labels"></span><div><div><b>Zapnout všechny popisky</b></div><small>Klikněte na „Popisky: vybraný“</small></div></li>
+        <li data-key="add"><span class="dot" id="dot-add"></span><div><div><b>Přidat první kus nábytku</b></div><small>Zvolte tmavší barvu pro lepší čitelnost</small></div></li>
         <li data-key="zoom"><span class="dot" id="dot-zoom"></span><div><div><b>Přiblížit/oddálit kolečkem</b></div><small>Zoom okolo kurzoru</small></div></li>
         <li data-key="pan"><span class="dot" id="dot-pan"></span><div><div><b>Posun pohledu</b></div><small>Shift + pravé tlačítko nebo posuvníky</small></div></li>
         <li data-key="nudge"><span class="dot" id="dot-nudge"></span><div><div><b>Posun nábytku šipkami</b></div><small>Alt = jemný krok</small></div></li>
@@ -700,13 +700,13 @@
   // ====== PRŮVODCE ======
   const tour = {
     steps: [
-      { id:'load',  target:'#btnUseProvided', title:'1) Načíst přiložený půdorys', text:'Klikněte na „Načíst přiložený“, načte se soubor <b>web_View.png</b>.', tip:'Pokud vidíte starou verzi obrázku, obnovte stránku.', onEnter:()=>{}, waitFor:'click' },
-      { id:'calib', target:'#btnCalibrate',   title:'2) Kalibrace délky',          text:'Klikněte na „Kalibrace délky“. V <b>levé spodní místnosti</b> vyberte rohové body a potvrďte <b>4.55</b> m.', tip:'Dialog je předvyplněn na 4.55 m.', onEnter:()=>{window._tourCalibDefault='4.55';}, waitFor:'calibrated' },
-      { id:'labels',target:'#btnLabels',      title:'3) Zobrazit všechny popisky', text:'Klikněte na „Popisky: vybraný“ — přepne se na <b>„Popisky: všechny“</b>.', tip:'', onEnter:()=>{}, waitFor:'click' },
-      { id:'add',   target:'#btnAddFurniture',title:'4) Přidat nábytek',           text:'Vyplňte název a rozměry, zvolte <b>tmavou barvu</b> a klikněte na „Přidat do středu“.', tip:'Tmavší barvy mají lepší kontrast popisku.', onEnter:()=>{}, waitFor:'click' },
+      { id:'load',  target:'#btnUseProvided', title:'1) Načíst přiložený půdorys', text:'Klikněte na „Načíst přiložený“, tím se načte půdorys.', tip:'Pokud vidíte starou verzi obrázku, obnovte stránku.', onEnter:()=>{}, waitFor:'click' },
+      { id:'calib', target:'#btnCalibrate',   title:'2) Kalibrace délky',          text:'Klikněte na „Kalibrace délky“. Poté klikněte v <b>levé spodní místnosti</b> na dva body (vnitřky zdí) a potvrďte <b>4.55</b> m.', tip:'Dialog bude předvyplněn na 4.55 m - správné měřítko.', onEnter:()=>{window._tourCalibDefault='4.55';}, waitFor:'calibrated' },
+      { id:'labels',target:'#btnLabels',      title:'3) Zobrazit všechny popisky', text:'Klikněte na „Popisky: vybrané“ — přepne se na <b>„Popisky: všechny“</b>.', tip:'', onEnter:()=>{}, waitFor:'click' },
+      { id:'add',   target:'#btnAddFurniture',title:'4) Přidat nábytek',           text:'Vyplňte název a rozměry, zvolte <b>tmavší barvu</b> (pro lepší kontrast) a klikněte na „Přidat do středu“.', tip:'Tmavší barvy mají lepší kontrast popisku.', onEnter:()=>{}, waitFor:'click' },
       { id:'zoom',  target:'#stage',          title:'5) Přiblížit/oddálit',        text:'Použijte <b>kolečko myši</b> k přiblížení/oddálení okolo kurzoru.', tip:'Bod pod kurzorem zůstane na místě.', onEnter:()=>{}, waitFor:'wheel' },
-      { id:'pan',   target:'#stage',          title:'6) Posun pohledu',            text:'Podržte <b>Shift</b> a táhněte <b>pravým tlačítkem</b> pro posun plochy.', tip:'Lze použít i posuvníky.', onEnter:()=>{}, waitFor:'pan' },
-      { id:'nudge', target:'body',            title:'7) Posun nábytku šipkami',    text:'Vyberte kus a klepněte na <b>šipky</b>. S <b>Alt</b> je krok jemný.', tip:'Shift = rychleji, Alt = 1 px.', onEnter:ensureHasItemForNudge, waitFor:'nudge' },
+      { id:'pan',   target:'#stage',          title:'6) Posun pohledu',            text:'Podržte <b>Shift</b> a táhněte <b>pravým tlačítkem myši</b> pro posun plochy půdorysu.', tip:'Lze použít i posuvníky po stranách stránky.', onEnter:()=>{}, waitFor:'pan' },
+      { id:'nudge', target:'body',            title:'7) Posun nábytku šipkami',    text:'Vyberte kus a klepněte na <b>šipky na klávesnici</b>. Když podržíte <b>Alt</b> , posun bude jemnější.', tip:'Shift = Větší skoky, Alt = Větší přesnost.', onEnter:ensureHasItemForNudge, waitFor:'nudge' },
       { id:'rotate',target:'body',            title:'8) Otočení nábytku',          text:'Stiskněte <b>R</b> pro otočení vybraného kusu o 90°.', tip:'', onEnter:ensureHasSelection, waitFor:'rotate' },
       { id:'delete',target:'body',            title:'9) Smazání nábytku',          text:'Stiskněte <b>Delete</b> pro smazání vybraného kusu.', tip:'', onEnter:ensureHasSelection, waitFor:'delete' },
       { id:'export',target:'#btnExport',      title:'10) Uložit do JSON',          text:'Klikněte na <b>Export</b> – stáhne se <b>planek.json</b>.', tip:'Později načtete přes „Import“.', onEnter:()=>{}, waitFor:'click' }
